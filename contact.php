@@ -1,22 +1,39 @@
 <?php
     $name = $_POST['name'];
     $email = $_POST['email'];
-    
+    $phone = $_POST['phone'];
     $message = $_POST['message'];
 
-    $from = 'From: UX_Form'; 
-    $to = 'gmrorem@gmail.com'; 
-    $subject = 'UX Portfolio Form Submission';
+    $username = $_POST['username'];
 
-    $body = "From: $name\n\n E-Mail: $email\n\n Message:\n\n $message";
+    $from = 'From: Rorem Law Website Contact Form';
 
 
-    if ($_POST['submit']) {
-    if (mail ($to, $subject, $body, $from)) { 
+    $to = 'mark.rorem@gmail.com';
+    $subject = 'Rorem Law Website Contact Form Submission';
+
+    $body = "From: $name\n\n E-Mail: $email\n\n Phone: $phone\n\n Message:\n\n $message";
+
+    $SpamErrorMessage = "No Websites or URLs permitted";
+
+
+
+    if (preg_match("/http/i", "$name")) {echo "$SpamErrorMessage"; exit();}
+     if (preg_match("/http/i", "$email")) {echo "$SpamErrorMessage"; exit();}
+    	if (preg_match("/http/i", "$phone")) {echo "$SpamErrorMessage"; exit();}
+    		if (preg_match("/http/i", "$message")) {echo "$SpamErrorMessage"; exit();}
+
+
+    if ($_POST['submit'])  {
+
+    if (( mail ($to, $subject, $body, $from)) && ($username == "")) {
         echo '<p>Your message has been sent!</p>';
-    } else { 
-        echo '<p>Something went wrong, go back and try again!</p>'; 
+    } else {
+        echo '<p>Something went wrong, go back and try again!</p>';
     }
 }
+
+
+
 
 ?>
