@@ -317,6 +317,12 @@ list-style:none;
 
 }
 
+.cats{
+
+  visibility:hidden;
+
+}
+
 .readMore{
 
 
@@ -389,9 +395,9 @@ max-width: 250px;
 
 }
 
-.main{
+.news{
 
-
+display:none;
 
 }
 
@@ -601,6 +607,12 @@ margin-bottom:-50px;
     background-attachment:fixed;
 }
 
+.cpyrt{
+
+  float:right;
+  margin-right:25px;
+
+}
 
 .contactForms{
 	padding:10px;
